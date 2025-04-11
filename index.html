@@ -1,36 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Danielle Taylor's Website</title>
 </head>
 <body>
-  <header>
-    <h1>Your Name</h1>
-    <p>Aspiring Developer | Problem Solver</p>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="projects.html">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title">Danielle Taylor</h1>
+      <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <section>
-      <h2>Welcome!</h2>
-      <p>I’m a software developer passionate about building useful, impactful tools.</p>
-      <a href="projects.html">View My Projects</a>
+  <main class="home-container">
+    
+    <section class="left-column">
+      <img src="DT_Pic.png" alt="Photo of Danielle Taylor" class="profile-pic" />
+      <h2>Danielle Taylor</h2>
+      <p>Computer Information Systems Major</p>
+
+      <div class="social-links">
+        <a href="DT_Resume.pdf" target="_blank" class="btn">Resume</a>
+        <a href="https://github.com/DanielleJTaylor" target="_blank" class="btn">GitHub</a>
+        <a href="https://www.linkedin.com/in/danielle-taylor-dt2026/" target="_blank" class="btn">LinkedIn</a>
+      </div>
+    </section>
+
+    <section class="right-column">
+      <h3>About Me</h3>
+      <p>
+        I am a driven and detail-oriented Computer Information Systems student with interests in web development, IT Support, data analysis/database management, and innovative technology. 
+        Proven ability to manage multiple priorities, collaborate on innovative research projects, and maintain the integrity of sensitive information. 
+        Known for adaptability, attention to detail, and professional communication.
+      </p>
+
+      <h3>Education</h3>
+      <p><strong>2026</strong> — B.S. in Computer Information Systems
+        <br>
+        Minor in Business Administration
+        <br>
+        University of Dayton<br>
+        
+      </p>
+      
     </section>
   </main>
-
-  <footer id="contact">
-    <p>Get in touch:</p>
-    <p>Email: you@example.com</p>
-    <p>
-      <a href="https://github.com/yourusername">GitHub</a> |
-      <a href="https://linkedin.com/in/yourprofile">LinkedIn</a>
-    </p>
-  </footer>
 </body>
 </html>

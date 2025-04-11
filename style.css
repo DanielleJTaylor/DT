@@ -1,32 +1,239 @@
+/* Reset body */
 body {
-    font-family: sans-serif;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-  }
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #fdfdfd; /* light background */
+  color: #222; /* dark text */
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  background-image: url("Cosmic.jpg");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 1rem 2rem;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+
+/* Flex layout */
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Site title */
+.site-title {
+  margin: 0;
+  font-size: 1.5rem;
+  color: white; /* white accent */
+}
+
+/* Navigation */
+.site-nav a {
+  color: #E6E6FA;
+  text-decoration: none;
+  margin-left: 2rem;
+  font-weight: bold;
+}
+
+.site-nav a:hover {
+  text-decoration: underline;
+}
+
+/* Page content */
+main {
+  padding: 2rem;
+}
+
+main h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #333;
+  font-size: 2rem;
+}
+
+/* Centered wrapper */
+.project-wrapper {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.project {
+  position: relative;
+  background: linear-gradient(145deg, #ffffff, #f5f5ff);
+  padding: 1.75rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+  margin-bottom: 2rem;
+  overflow: hidden; /* ensures overlay stays inside */
+  transition: box-shadow 0.3s ease;
+}
+
+.project::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(100, 100, 100, 0.1); /* soft purple overlay */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+  border-radius: 16px;
+}
+
+.project:hover::after {
+  opacity: 1;
+}
+
+.project > * {
+  position: relative;
+  z-index: 2;
+}
+
+.project h3 {
+  color: #32127A; /* Deep purple */
+  font-size: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 0.6rem;
+}
+
+
+.project p {
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 0.8rem;
+}
+
+/* Project links */
+.project a {
+  text-decoration: none;
+  font-weight: bold;
+  margin-right: 1rem;
+  font-size: 0.95rem;
+}
+
+.project a:first-of-type {
+  color: #FDC500; /* gold yellow */
+}
+
+.project a:last-of-type {
+  color: #6495ED; /* cornflower blue */
+}
+
+
+.project a:hover {
+  text-decoration: underline;
+  opacity: 0.85;
+}
+
+
+
+
+
+
+/* Home layout */
+.home-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.left-column {
+  flex: 1;
+  min-width: 250px;
+  text-align: center;
+  background-image: url("Cosmic.jpg");
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  padding: 2rem 1rem;
+  border-radius: 12px;
+  max-height: 450px;
+  margin-top: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.right-column {
+  flex: 2;
+  min-width: 300px;
+  padding-left: 30px;
+}
+
+
+
+.left-column::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3); /* subtle black overlay */
+  z-index: 0;
+}
+
+.left-column > * {
+  position: relative;
+  z-index: 1;
+}
+
+.social-links {
+  margin-top: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  margin: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  background-color:black;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #865bd6;
+  box-shadow: 0 0 10px #865bd6;
+}
+
+
+.right-column ul {
+  margin: 0.5rem 0 1.5rem 1rem;
+  padding-left: 1.2rem;
+}
+
+.right-column li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+
+.right-column h3 {
+  margin-top: 2rem;
+  border-bottom: 2px solid #CDAEFF;
+  padding-bottom: 0.4rem;
+}
+
+.left-column h2 {
+
+  color: #fff;
   
-  header {
-    background: #333;
-    color: white;
-    padding: 1em;
-    text-align: center;
-  }
-  
-  nav a {
-    color: white;
-    margin: 0 1em;
-    text-decoration: none;
-  }
-  
-  main {
-    padding: 2em;
-    max-width: 800px;
-    margin: auto;
-  }
-  
-  footer {
-    background: #f4f4f4;
-    text-align: center;
-    padding: 1em;
-  }
-  
+}
+
+.profile-pic {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 10px solid #fff; /* Adjust width here */
+  margin-bottom: 1rem;
+}
