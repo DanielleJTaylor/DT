@@ -147,7 +147,7 @@ main h2 {
   padding: 2rem 1rem;
   border-radius: 12px;
   height: 450px;
-  position: relative;
+  position: sticky;
   overflow: hidden;
   display: flex;
   flex-direction: column;
