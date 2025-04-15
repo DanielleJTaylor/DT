@@ -2,8 +2,8 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #fdfdfd; /* light background */
-  color: #222; /* dark text */
+  background-color: #fdfdfd;
+  color: #222;
 }
 
 .site-header {
@@ -19,22 +19,18 @@ body {
   position: relative;
 }
 
-
-/* Flex layout */
 .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-/* Site title */
 .site-title {
   margin: 0;
   font-size: 1.5rem;
-  color: white; /* white accent */
+  color: white;
 }
 
-/* Navigation */
 .site-nav a {
   color: #E6E6FA;
   text-decoration: none;
@@ -72,7 +68,7 @@ main h2 {
   border-radius: 16px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.06);
   margin-bottom: 2rem;
-  overflow: hidden; /* ensures overlay stays inside */
+  overflow: hidden;
   transition: box-shadow 0.3s ease;
 }
 
@@ -80,7 +76,7 @@ main h2 {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(100, 100, 100, 0.1); /* soft purple overlay */
+  background: rgba(100, 100, 100, 0.1);
   opacity: 0;
   transition: opacity 0.3s ease;
   z-index: 1;
@@ -97,12 +93,11 @@ main h2 {
 }
 
 .project h3 {
-  color: #32127A; /* Deep purple */
+  color: #003d80; /* darker version of cornflower blue */
   font-size: 1.5rem;
   margin-top: 0;
   margin-bottom: 0.6rem;
 }
-
 
 .project p {
   color: #444;
@@ -110,7 +105,6 @@ main h2 {
   margin-bottom: 0.8rem;
 }
 
-/* Project links */
 .project a {
   text-decoration: none;
   font-weight: bold;
@@ -118,32 +112,28 @@ main h2 {
   font-size: 0.95rem;
 }
 
-.project a:first-of-type {
+.github-link {
   color: #FDC500; /* gold yellow */
 }
 
-.project a:last-of-type {
+.video-link {
   color: #6495ED; /* cornflower blue */
 }
-
 
 .project a:hover {
   text-decoration: underline;
   opacity: 0.85;
 }
 
-
-
-
-
-
 /* Home layout */
 .home-container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 80px);
   padding: 2rem;
   gap: 2rem;
+  overflow: hidden;
 }
 
 .left-column {
@@ -156,31 +146,39 @@ main h2 {
   color: #fff;
   padding: 2rem 1rem;
   border-radius: 12px;
-  max-height: 450px;
-  margin-top: 30px;
+  height: 450px;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-
-.right-column {
-  flex: 2;
-  min-width: 300px;
-  padding-left: 30px;
-}
-
-
 
 .left-column::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.3); /* subtle black overlay */
+  background: rgba(0, 0, 0, 0.3);
   z-index: 0;
 }
 
 .left-column > * {
   position: relative;
   z-index: 1;
+}
+
+.right-column {
+  flex: 2;
+  min-width: 100px;
+  padding-left: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  text-align: start;
+  max-height: 100%;
+  overflow-y: auto;
+  height: 520px;
 }
 
 .social-links {
@@ -191,7 +189,7 @@ main h2 {
   display: inline-block;
   margin: 0.5rem;
   padding: 0.6rem 1.2rem;
-  background-color:black;
+  background-color: black;
   color: white;
   text-decoration: none;
   border-radius: 6px;
@@ -200,10 +198,9 @@ main h2 {
 }
 
 .btn:hover {
-  background-color: #865bd6;
-  box-shadow: 0 0 10px #865bd6;
+  background-color: #6495ED;
+  box-shadow: 0 0 10px #6495ED;
 }
-
 
 .right-column ul {
   margin: 0.5rem 0 1.5rem 1rem;
@@ -216,17 +213,14 @@ main h2 {
   color: #444;
 }
 
-
 .right-column h3 {
   margin-top: 2rem;
-  border-bottom: 2px solid #CDAEFF;
+  border-bottom: 2px solid #6495ED;
   padding-bottom: 0.4rem;
 }
 
 .left-column h2 {
-
   color: #fff;
-  
 }
 
 .profile-pic {
@@ -234,6 +228,6 @@ main h2 {
   height: 200px;
   object-fit: cover;
   border-radius: 50%;
-  border: 10px solid #fff; /* Adjust width here */
+  border: 10px solid #fff;
   margin-bottom: 1rem;
 }
