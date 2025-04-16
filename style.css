@@ -1,22 +1,25 @@
-/* Reset body */
+/* Body becomes a column-based Flex container with 2 rows */
 body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Make sure it takes full viewport height */
   margin: 0;
   font-family: Arial, sans-serif;
   background-color: #fdfdfd;
   color: #222;
 }
 
+/* Top row: Banner/Header */
 .site-header {
-  position: sticky;
-  top: 0;
+  flex: 0 0 auto;
   background-image: url("Cosmic.jpg");
   background-size: cover;
   background-position: center;
   color: white;
-  padding: 1rem 2rem;
-  z-index: 1000;
+  align-content: center;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  position: relative;
+  height: 5vh;
+  padding: 0px 3vw; /* 1rem top/bottom, 5% of screen width on left/right */
 }
 
 .container {
@@ -27,8 +30,9 @@ body {
 
 .site-title {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 4vh;
   color: white;
+  
 }
 
 .site-nav a {
@@ -42,10 +46,6 @@ body {
   text-decoration: underline;
 }
 
-/* Page content */
-main {
-  padding: 2rem;
-}
 
 main h2 {
   text-align: center;
@@ -125,6 +125,12 @@ main h2 {
   opacity: 0.85;
 }
 
+/* Page content */
+main {
+  padding-top: 120px;
+}
+
+
 /* Home layout */
 .home-container {
   display: flex;
@@ -136,9 +142,23 @@ main h2 {
   overflow: hidden;
 }
 
+/* Bottom row: Main Content area (with two columns) */
+main.home-container {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  padding: 2rem;
+  gap: 2rem;
+  overflow: hidden;
+}
+
+
 .left-column {
   flex: 1;
   min-width: 250px;
+  max-width: 350px;
   text-align: center;
   background-image: url("Cosmic.jpg");
   background-size: cover;
@@ -146,8 +166,9 @@ main h2 {
   color: #fff;
   padding: 2rem 1rem;
   border-radius: 12px;
-  height: 450px;
-  position: sticky;
+  max-height: calc(100vh - 25vh); 
+  aspect-ratio: 3 / 4; /* Keeps width:height ratio */
+  position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -224,10 +245,13 @@ main h2 {
 }
 
 .profile-pic {
-  width: 200px;
-  height: 200px;
+  width: 100%;
+  max-width: 200px;
+  min-width: 100px; /* prevents it from shrinking too tiny */
+  aspect-ratio: 1;   /* keeps it a square */
+  height: auto;      /* allows natural scaling */
   object-fit: cover;
   border-radius: 50%;
   border: 10px solid #fff;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
 }
