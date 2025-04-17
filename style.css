@@ -149,7 +149,7 @@ main.home-container {
 
 .left-column {
   flex: 1;
-  min-width: 250px;
+  min-width: 20px;
   max-width: 350px;
   text-align: center;
   background-image: url("Cosmic.jpg");
@@ -158,7 +158,7 @@ main.home-container {
   color: #fff;
   padding: 2rem 1rem;
   border-radius: 12px;
-  max-height: calc(100vh - 25vh); 
+  max-height: calc(100vh - 35vh); 
   aspect-ratio: 3 / 4; /* Keeps width:height ratio */
   position: relative;
   overflow: hidden;
@@ -200,7 +200,7 @@ main.home-container {
 
 .btn {
   display: inline-block;
-  margin: 0.5rem;
+  margin: 0.2rem;
   padding: 0.6rem 1.2rem;
   background-color: black;
   color: white;
@@ -237,11 +237,9 @@ main.home-container {
 }
 
 .profile-pic {
-  width: 100%;
-  max-width: 200px;
-  min-width: 100px; /* prevents it from shrinking too tiny */
-  aspect-ratio: 1;   /* keeps it a square */
-  height: auto;      /* allows natural scaling */
+  max-width: clamp(10px, 20vw, 200px); /* Shrinks with viewport width */
+  height: clamp(10px, 30vh, 200px);     /* Shrinks with viewport height */
+  aspect-ratio: 1;        /* Keeps it a square */
   object-fit: cover;
   border-radius: 50%;
   border: 10px solid #fff;
