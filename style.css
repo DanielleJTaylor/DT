@@ -18,7 +18,7 @@ body {
   color: white;
   align-content: center;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  height: 5vh;
+  height: 8vh;
   padding: 0px 3vw; /* 1rem top/bottom, 5% of screen width on left/right */
 }
 
@@ -30,7 +30,7 @@ body {
 
 .site-title {
   margin: 0;
-  font-size: 4vh;
+  font-size: clamp(0.2rem, 1vw + 1vh, 4rem);
   color: white;
   
 }
@@ -40,6 +40,7 @@ body {
   text-decoration: none;
   margin-left: 2rem;
   font-weight: bold;
+  font-size: clamp(0.1rem, 0.8vw + 0.8vh, 3rem);
 }
 
 .site-nav a:hover {
@@ -132,23 +133,14 @@ main {
 
 
 /* Home layout */
-.home-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-height: calc(100vh - 80px);
-  padding: 2rem;
-  gap: 2rem;
-  overflow: hidden;
-}
-
 /* Bottom row: Main Content area (with two columns) */
 main.home-container {
   flex: 1 1 auto;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: stretch;
+  align-items: center;
+  max-height: calc(100vh - 80px);
   padding: 2rem;
   gap: 2rem;
   overflow: hidden;
