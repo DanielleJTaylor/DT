@@ -18,11 +18,60 @@
     </div>
   </header>
 
-  <main class="home-container">
-    
 
-      
-    </section>
-  </main>
-</body>
-</html>
+
+  <div class="slide">
+  <main class="home-course-container">
+    <div class="button-strip" id="buttonStrip"></div>  <!-- Button strip placed ABOVE content -->
+
+    <div class="coursework-container">
+      <div class="course-content-wrapper">
+        <div class="course-content" id="courseContent"></div>
+      </div>
+    </div>
+    </main>
+    </div>
+
+
+
+    <script>
+    const institutions = ["University of Dayton", "Certificates"];
+    let currentIndex = 0;
+
+    function renderButtons() {
+      const buttonStrip = document.getElementById("buttonStrip");
+      buttonStrip.innerHTML = "";
+      institutions.forEach((_, index) => {
+        const btn = document.createElement("button");
+        btn.className = "nav-btn";
+        btn.onclick = () => switchPage(index);
+        buttonStrip.appendChild(btn);
+      });
+    }
+
+    function renderPages() {
+      const content = document.getElementById("courseContent");
+      content.innerHTML = institutions.map(inst => `
+        <div class="slide">
+          <div class="page-title">${inst}</div>
+          <div class="page-body">
+            <p>Content for ${inst} goes here.</p>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function switchPage(index) {
+      const content = document.getElementById("courseContent");
+      currentIndex = index;
+      content.style.transform = `translateX(-${100 * index}%)`;
+    }
+
+    renderButtons();
+    renderPages();
+
+    </script>
+    </main>
+  </body>
+  </html>
+  
