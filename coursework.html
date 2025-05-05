@@ -26,7 +26,9 @@
 
     <div class="coursework-container">
       <div class="course-content-wrapper">
-        <div class="course-content" id="courseContent"></div>
+        <div class="course-content" id="courseContent">
+
+        </div>
       </div>
     </div>
     </main>
@@ -35,8 +37,26 @@
 
 
     <script>
-    const institutions = ["University of Dayton", "Certificates"];
-    let currentIndex = 0;
+      const institutions = ["University of Dayton", "Certificates"];
+      const courseData = {
+        "University of Dayton": [
+          { title: "🏫 Robotics", desc: "Java programming projects from several university classes." },
+          { title: "📊 Data Science", desc: "Python and machine learning for real-world datasets." },
+          { title: "🛡 Cybersecurity", desc: "Exploring threats, encryption, and ethical hacking." },
+          { title: "🌐 Web Development", desc: "HTML, CSS, JS – creating modern responsive sites." }, { title: "🏫 Robotics", desc: "Java programming projects from several university classes." },
+          { title: "📊 Data Science", desc: "Python and machine learning for real-world datasets." },
+          { title: "🛡 Cybersecurity", desc: "Exploring threats, encryption, and ethical hacking." },
+          { title: "🌐 Web Development", desc: "HTML, CSS, JS – creating modern responsive sites." }
+        ],
+        "Certificates": [
+          { title: "💻 Python Basics", desc: "Completed beginner to intermediate course on Python." },
+          { title: "☁ AWS Cloud", desc: "Amazon Web Services fundamentals and certification prep." },
+          { title: "🧠 AI Essentials", desc: "Crash course on neural networks and reinforcement learning." },
+          { title: "🔐 Ethical Hacking", desc: "Learned about penetration testing and white-hat security." }
+        ]
+      };
+    
+      let currentIndex = 0;
 
     function renderButtons() {
       const buttonStrip = document.getElementById("buttonStrip");
@@ -51,27 +71,37 @@
 
     function renderPages() {
       const content = document.getElementById("courseContent");
-      content.innerHTML = institutions.map(inst => `
-        <div class="slide">
-          <div class="page-title">${inst}</div>
-          <div class="page-body">
-            <p>Content for ${inst} goes here.</p>
+      content.innerHTML = institutions.map(inst => {
+        const classesHTML = courseData[inst].map(cls => `
+          <section class="class">
+            <h3>${cls.title}</h3>
+            <p>${cls.desc}</p>
+          </section>
+        `).join('');
+
+        return `
+          <div class="course-slide">
+            <div class="page-title">${inst}</div>
+            <div class="classes-flex">${classesHTML}</div>
           </div>
-        </div>
-      `).join('');
+        `;
+      }).join('');
+
+      // Restore slide layout
+      content.style.width = `${institutions.length * 100}vw`;
+      content.style.display = "flex";
     }
 
+
     function switchPage(index) {
-      const content = document.getElementById("courseContent");
       currentIndex = index;
-      content.style.transform = `translateX(-${100 * index}%)`;
+      const content = document.getElementById("courseContent");
+      content.style.transform = `translateX(-${100 * index}vw)`;
     }
+
 
     renderButtons();
     renderPages();
-
-    </script>
-    </main>
-  </body>
-  </html>
-  
+  </script>
+</body>
+</html>
