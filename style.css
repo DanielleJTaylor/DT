@@ -301,7 +301,7 @@ main.home-container {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background: #ccc;
+  background: white;
   border: none;
   color: black;
   font-weight: bold;
@@ -311,13 +311,13 @@ main.home-container {
 }
 
 .nav-btn:hover {
-  background: #999;
+  background: #d0cfcf;
   transform: scale(1.1);
 }
 
 .nav-btn.active {
   text-decoration: underline;
-  background: #aaa;
+  background: #999;
 }
 
 
