@@ -286,33 +286,40 @@ main.home-container {
   justify-content: center;
 }
 
-.button-strip {
+.button-strip.bottom-nav {
   display: flex;
-  width: 100vw;
-  position: absolute;
   justify-content: center;
-  align-items: center;
+  align-items: end;
   margin-top: 1rem;
-  gap: 1rem;
-  box-sizing: border-box;
+  gap: 0.75rem;
+  padding-bottom: 1rem;
 }
 
 
 
 .nav-btn {
-  width: 60px;       /* 3x wider */
-  height: 15px;      /* original height */
-  border-radius: 999px; /* makes it oval */
-  background: #aaa;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #ccc;
   border: none;
+  color: black;
+  font-weight: bold;
+  font-size: 1rem;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .nav-btn:hover {
+  background: #999;
   transform: scale(1.1);
-  background: #888;
 }
+
+.nav-btn.active {
+  text-decoration: underline;
+  background: #aaa;
+}
+
 
 
 .course-content-wrapper {

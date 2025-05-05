@@ -22,7 +22,6 @@
 
   <div class="slide">
   <main class="home-course-container">
-    <div class="button-strip" id="buttonStrip"></div>  <!-- Button strip placed ABOVE content -->
 
     <div class="coursework-container">
       <div class="course-content-wrapper">
@@ -31,6 +30,7 @@
         </div>
       </div>
     </div>
+      <div class="button-strip bottom-nav" id="buttonStrip"></div>  <!-- Button strip placed BELOW content -->
     </main>
     </div>
 
@@ -66,16 +66,18 @@
     
       let currentIndex = 0;
 
-    function renderButtons() {
-      const buttonStrip = document.getElementById("buttonStrip");
-      buttonStrip.innerHTML = "";
-      institutions.forEach((_, index) => {
-        const btn = document.createElement("button");
-        btn.className = "nav-btn";
-        btn.onclick = () => switchPage(index);
-        buttonStrip.appendChild(btn);
-      });
-    }
+      function renderButtons() {
+        const buttonStrip = document.getElementById("buttonStrip");
+        buttonStrip.innerHTML = "";
+        institutions.forEach((_, index) => {
+          const btn = document.createElement("button");
+          btn.className = "nav-btn" + (index === currentIndex ? " active" : "");
+          btn.textContent = index + 1;
+          btn.onclick = () => switchPage(index);
+          buttonStrip.appendChild(btn);
+        });
+      }
+
 
     function renderPages() {
       const content = document.getElementById("courseContent");
@@ -105,6 +107,7 @@
       currentIndex = index;
       const content = document.getElementById("courseContent");
       content.style.transform = `translateX(-${100 * index}vw)`;
+      renderButtons();  // Updates active state
     }
 
 
