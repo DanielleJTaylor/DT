@@ -279,9 +279,9 @@ main.home-container {
 
 .coursework-container {
   width: 100vw;
-  min-height: 95%;
+  min-height: 100%;
   margin: 0 auto;
-  padding-top: 2rem;
+  padding-top: 0rem;
   text-align: center;
   justify-content: center;
 }
