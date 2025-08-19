@@ -24,6 +24,10 @@ body {
   top: 0;
   color: #fff;
   overflow-y: auto;
+  display: flex;
+  /* === THIS IS THE FIX === */
+  /* Align the child (.sidebar-content) to the top */
+  align-items: center;
 
   /* Fixed cosmic background */
   background: 
