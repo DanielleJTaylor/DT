@@ -4,52 +4,73 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
-  <title>Danielle Taylor's Website</title>
+  <title>Danielle Taylor's Portfolio</title>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <h1 class="site-title">Danielle Taylor</h1>
-      <nav class="site-nav">
-        <a href="index.html">Home</a>
-        <a href="coursework.html">Coursework</a>
-        <a href="projects.html">Projects</a>
-      </nav>
-    </div>
-  </header>
+  <div class="page-container">
+    <!-- ===== LEFT STICKY SIDEBAR ===== -->
+    <aside class="sidebar">
+      <div class="sidebar-content">
+        <img src="DT_Pic.png" alt="Photo of Danielle Taylor" class="profile-pic" />
+        <h2>Danielle Taylor</h2>
+        <p class="subtitle">Computer Information Systems Major</p>
 
-  <main class="home-container">
+        <nav class="sidebar-nav">
+          <a href="#home">Home</a>
+          <a href="#coursework">Coursework</a>
+          <a href="#projects">Projects</a>
+        </nav>
+
+        <div class="social-links">
+          <a href="DT_Resume.pdf" target="_blank" class="btn">Resume</a>
+          <a href="https://github.com/DanielleJTaylor" target="_blank" class="btn">GitHub</a>
+          <a href="https://www.linkedin.com/in/danielle-taylor-dt/" target="_blank" class="btn">LinkedIn</a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- index.html -->
+
+  <!-- ===== RIGHT SCROLLABLE CONTENT ===== -->
+  <main class="main-content">
     
-    <section class="left-column">
-      <img src="DT_Pic.png" alt="Photo of Danielle Taylor" class="profile-pic" />
-      <h2>Danielle Taylor</h2>
-      <p>Computer Information Systems Major</p>
+    <!-- Section 1: About Me (UPDATED SECTION) -->
+    <section id="home">
+      <div class="home-container">
+        <!-- Flex Item 1: Text Content -->
+        <div class="home-text">
+          <h3>About Me</h3>
+          <p>
+            I am a driven and detail-oriented Computer Information Systems student with interests in web development, IT Support, data analysis/database management, and innovative technology. Proven ability to manage multiple priorities, collaborate on innovative research projects, and maintain the integrity of sensitive information. Known for adaptability, attention to detail, and professional communication.
+          </p>
+          <h3>Education</h3>
+          <p>
+            <strong>2026</strong> — B.S. in Computer Information Systems
+            <br>Minor in Business Administration
+            <br>University of Dayton
+          </p>
+        </div>
 
-      <div class="social-links">
-        <a href="DT_Resume.pdf" target="_blank" class="btn">Resume</a>
-        <a href="https://github.com/DanielleJTaylor" target="_blank" class="btn">GitHub</a>
-        <a href="https://www.linkedin.com/in/danielle-taylor-dt/" target="_blank" class="btn">LinkedIn</a>
+        <!-- Flex Item 2: Image -->
+        <div class="home-image">
+          <img src="DT_Pic.png" alt="Danielle Taylor" class="about-me-pic" />
+        </div>
       </div>
     </section>
 
-    <section class="right-column">
-      <h3>About Me</h3>
-      <p>
-        I am a driven and detail-oriented Computer Information Systems student with interests in web development, IT Support, data analysis/database management, and innovative technology. 
-        Proven ability to manage multiple priorities, collaborate on innovative research projects, and maintain the integrity of sensitive information. 
-        Known for adaptability, attention to detail, and professional communication.
-      </p>
-
-      <h3>Education</h3>
-      <p><strong>2026</strong> — B.S. in Computer Information Systems
-        <br>
-        Minor in Business Administration
-        <br>
-        University of Dayton<br>
-        
-      </p>
-      
+    <!-- ... the rest of your main content (coursework, projects) remains the same ... -->
+    <section id="coursework">
+      <!-- coursework.js content will be dynamically injected here -->
     </section>
+
+    <section id="projects">
+      <!-- projects content will be loaded here -->
+    </section>
+    
   </main>
+  </div>
+
+  <script src="coursework.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
