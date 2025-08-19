@@ -24,18 +24,19 @@ async function loadSection(url, targetSelector, extractSelector) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  // === THIS IS THE FIX ===
-  // UNCOMMENT these two lines to load your external content.
+  // Load the external content for projects and coursework
   loadSection("coursework.html", "#coursework", "#coursework, main");
   loadSection("projects.html", "#projects", "main");
 
   // --- Code for highlighting active link in sidebar ---
   const sections = [...document.querySelectorAll("#home, #coursework, #projects")];
-  // UPDATED: Changed selector to find links in the sidebar
   const links = [...document.querySelectorAll('.sidebar-nav a')]; 
 
   const byId = id => links.find(a => a.getAttribute('href') === `#${id}`);
 
+  // === THIS IS THE FIX ===
+  // The rootMargin is adjusted to create a larger, more stable detection zone.
+  // It now activates when a section is in the top 60% of the screen.
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -46,7 +47,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
     });
-  }, { rootMargin: '-40% 0px -50% 0px', threshold: 0.1 });
+  }, { 
+    rootMargin: '-20% 0px -60% 0px', // TOP, RIGHT, BOTTOM, LEFT
+    threshold: 0 
+  });
 
   sections.forEach(s => obs.observe(s));
 });
