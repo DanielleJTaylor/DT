@@ -32,7 +32,7 @@ body {
   /* Fixed cosmic background */
   background: 
     linear-gradient(rgba(15, 23, 42, 0.247), rgba(15, 23, 42, 0.9)),
-    url("cosmic.jpg") no-repeat center center;
+    url("Cosmic.jpg") no-repeat center center;
   background-size: cover;
 }
 
