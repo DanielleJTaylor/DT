@@ -14,18 +14,20 @@ async function loadSection(url, targetSelector, extractSelector) {
       target.innerHTML = extracted.innerHTML;
     }
 
-    // Re-run coursework script if it was the one loaded
-    if (targetSelector === "#coursework" && typeof window.initCoursework === "function") {
-      window.initCoursework();
-    }
+    // This is no longer needed because the other script handles itself
+    // if (targetSelector === "#coursework" && typeof window.initCoursework === "function") {
+    //   window.initCoursework();
+    // }
   } catch (e) {
     console.error(`Failed to load content for ${targetSelector}`, e);
   }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Load the external content for projects and coursework
-  loadSection("coursework.html", "#coursework", "#coursework, main");
+  // REMOVED the line for loading coursework.
+  // loadSection("coursework.html", "#coursework", "#coursework, main"); 
+  
+  // Keep the line for loading projects.
   loadSection("projects.html", "#projects", "main");
 
   // --- Code for highlighting active link in sidebar ---
@@ -33,10 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const links = [...document.querySelectorAll('.sidebar-nav a')]; 
 
   const byId = id => links.find(a => a.getAttribute('href') === `#${id}`);
-
-  // === THIS IS THE FIX ===
-  // The rootMargin is adjusted to create a larger, more stable detection zone.
-  // It now activates when a section is in the top 60% of the screen.
+  
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {

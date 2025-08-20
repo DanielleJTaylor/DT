@@ -12,12 +12,13 @@ body {
 
 .page-container {
   display: flex;
+  width: 100%;
   align-items: flex-start;
 }
 
-/* ===== 1. LEFT STICKY SIDEBAR (UPDATED BACKGROUND) ===== */
+/* ===== 1. LEFT STICKY SIDEBAR ===== */
 .sidebar {
-  width: 320px;
+  width: 24vw;
   flex-shrink: 0;
   height: 100vh;
   position: sticky;
@@ -25,17 +26,13 @@ body {
   color: #fff;
   overflow-y: auto;
   display: flex;
-  /* === THIS IS THE FIX === */
-  /* Align the child (.sidebar-content) to the top */
   align-items: center;
-
-  /* Fixed cosmic background */
+  justify-content: center;
   background: 
     linear-gradient(rgba(15, 23, 42, 0.247), rgba(15, 23, 42, 0.9)),
     url("Cosmic.jpg") no-repeat center center;
   background-size: cover;
 }
-
 
 /* This container centers all content within the sidebar */
 .sidebar-content {
@@ -43,45 +40,49 @@ body {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 2.5rem;
+  padding: 1vw;
 }
 
 .profile-pic {
-  width: 160px;
-  height: 160px;
+  width: 60%; 
+  height: auto; 
   border-radius: 50%;
   object-fit: cover;
-  /* Changed border to a brighter color for better contrast */
   border: 4px solid #6495ED; 
-  margin-bottom: 1rem;
+  margin-bottom: 2vw;
+}
+
+.sidebar h2, 
+.sidebar .subtitle, 
+.sidebar-nav a, 
+.social-links .btn {
+  font-size: clamp(0.7rem, 1.2vw, 1rem);
 }
 
 .sidebar h2 {
-  margin: 0.5rem 0 0.25rem;
-  font-size: 1.75rem;
+  margin: 1vw 0 0.5vw;
 }
 
 .sidebar .subtitle {
-  margin: 0 0 2rem 0;
-  /* Changed color for better readability on cosmic background */
+  margin: 0 0 1vw 0;
   color: #ccc; 
-  font-size: 0.95rem;
   font-weight: 300;
 }
 
 .sidebar-nav {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  margin-bottom: 2rem;
+  width: 80%;
+  margin-bottom: 2vw;
 }
 
 .sidebar-nav a {
   color: #f0f0f0;
   text-decoration: none;
   font-weight: bold;
-  padding: 0.75rem 0;
-  border-radius: 8px;
+  padding: 0.5vw 0;
+  margin: 0.2vw 0;
+  border-radius: 6px;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
@@ -90,13 +91,17 @@ body {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
+.social-links {
+  width: 80%;
+}
+
 .social-links .btn {
   display: block;
   width: 100%;
   box-sizing: border-box;
-  margin: 0.6rem 0;
-  padding: 0.75rem 1.2rem;
-  background-color: rgba(255, 255, 255, 0.1); /* Subtle background */
+  margin: 0.5vw 0;
+  padding: 0.5vw 1vw;
+  background-color: rgba(255, 255, 255, 0.1); 
   color: white;
   text-decoration: none;
   border-radius: 8px;
@@ -109,33 +114,35 @@ body {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-
-/* ===== 2. RIGHT SCROLLABLE CONTENT ===== */
+/* ===== 2. RIGHT SCROLLABLE CONTENT (UPDATED) ===== */
 .main-content {
   flex-grow: 1;
-  padding: 2.5rem;
-  overflow-x: hidden; 
+  max-width: 76vw;
+  padding: clamp(1rem, 5vw, 2.5rem);
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
-/* "About Me" Section - Kept dark blue background */
+/* "About Me" Section */
 #home {
   background-color: #2c3e50; 
   color: #ffffff;
-  padding: 2.5rem;
+  padding: clamp(1.5rem, 5vw, 3rem);
   border-radius: 12px;
-  margin-bottom: 2.5rem;
+  margin-bottom: clamp(1rem, 4vh, 2.5rem);
 }
 
 .home-container {
   display: flex;
   align-items: center;
-  gap: 2.5rem;
+  gap: clamp(1rem, 5vw, 2.5rem);
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .home-text {
   flex: 2;
-  min-width: 300px;
+  min-width: 250px;
 }
 
 .home-image {
@@ -145,18 +152,25 @@ body {
 }
 
 .about-me-pic {
-  width: 260px;
-  height: 260px;
+  /* Use viewport units for better fluid scaling */
+  width: clamp(100px, 30vw, 260px); 
+  height: auto;
   border-radius: 50%;
   object-fit: cover;
   border: 4px solid #181f33;
 }
 
 #home h3 {
+  font-size: clamp(1rem, 2.5vw, 1.75rem);
   border-bottom: 2px solid #7688b9;
-  padding-bottom: 0.5rem;
+  padding-bottom: clamp(0.2rem, 1vw, 0.5rem);
   display: inline-block;
-  margin-bottom: 1rem;
+  margin-bottom: clamp(0.5rem, 2vh, 1rem);
+}
+
+#home p {
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+  line-height: clamp(1.4rem, 2.5vw, 1.6rem);
 }
 
 @media (max-width: 768px) {
@@ -172,42 +186,55 @@ body {
 /* Coursework and Projects Sections */
 #coursework, #projects {
   background-color: #ffffff;
-  padding: 2.5rem;
+  padding: clamp(1rem, 5vw, 2.5rem);
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  margin-bottom: 2.5rem;
-}
-
-.coursework-container,
-.course-content-wrapper,
-.course-slide {
-  width: 100%;
-}
-
-.course-content-wrapper {
-  overflow: hidden;
-  position: relative;
+  margin-bottom: clamp(1rem, 4vh, 2.5rem);
 }
 
 .classes-flex {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1.5rem;
+  gap: clamp(0.5rem, 2vw, 1.5rem);
 }
 
 .class {
-  flex: 1 1 300px;
+  /* MODIFIED: Set flex properties to establish a base size and max-width, creating a responsive 2-column grid. */
+  flex: 1 1 300px; /* Grow from a 300px base */
+  max-width: calc(50% - 1.5rem); /* Enforce a max of 2 columns by limiting width, accounting for gap */
   background: #f9f9f9;
   border: 1px solid #eee;
   border-radius: 10px;
-  padding: 1.5rem;
+  padding: clamp(1rem, 3vw, 1.5rem);
   text-align: left;
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  max-width: 400px;
+  box-sizing: border-box;
+}
+
+/* ADDED: Media query for small screens to ensure a single-column layout */
+@media (max-width: 768px) {
+  .class {
+    max-width: 100%; /* Allow the course box to take the full width */
+  }
 }
 
 .class h3, .class p {
   overflow-wrap: break-word;
   word-wrap: break-word;
+}
+
+.category-title {
+  width: 100%;
+  text-align: center;
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  color: #333;
+  margin: 2.5rem 0 1.5rem 0;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 0.5rem;
+}
+
+/* Removes the extra space above the very first title */
+.course-category:first-child .category-title {
+  margin-top: 0;
 }
