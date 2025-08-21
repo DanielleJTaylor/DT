@@ -1,6 +1,5 @@
 /* style.css */
 
-
 html {
   scroll-behavior: smooth;
 }
@@ -11,12 +10,17 @@ body {
   background-color: #f4f4f9;
 }
 
-/* ADD THIS RULE AT THE TOP */
+/* ADDED/MODIFIED SECTION FOR SCROLL LOCKING */
 body.body-no-scroll {
   overflow: hidden;
 }
 
-/* ... the rest of your css file remains exactly the same ... */
+/* ADD THIS NEW RULE: It targets the main page container when the menu is open */
+body.body-no-scroll .page-container {
+  height: 100vh;
+  overflow: hidden;
+}
+/* END OF ADDED/MODIFIED SECTION */
 
 .page-container {
   display: flex;
@@ -24,7 +28,6 @@ body.body-no-scroll {
   align-items: flex-start;
 }
 
-/* ===== 1. LEFT STICKY SIDEBAR ===== */
 /* ===== 1. LEFT STICKY SIDEBAR (MODIFIED) ===== */
 .sidebar {
   width: 24vw;
@@ -54,6 +57,8 @@ body.body-no-scroll {
   padding: 1vw;
   width: 100%; /* ADDED: Ensures it fills the sidebar width */
 }
+
+/* ... the rest of your css file remains exactly the same ... */
 
 .profile-pic {
   width: 60%; 
@@ -397,4 +402,3 @@ body.body-no-scroll {
   }
 }
 
-/* (The rest of your CSS file remains the same) */
