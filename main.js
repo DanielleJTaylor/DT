@@ -51,10 +51,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const mobileNav = document.querySelector('.mobile-nav');
   const mobileNavLinks = document.querySelectorAll('.mobile-sidebar-nav a');
 
-  // 1. Function to open/close the menu
+  // MODIFIED: Function to open/close the menu
   function toggleMobileMenu() {
     // Toggle the .is-open class on the menu itself
     mobileNav.classList.toggle('is-open');
+
+    // **THIS IS THE KEY FIX:** Toggle the scroll-lock class on the BODY
+    document.body.classList.toggle('body-no-scroll');
     
     // Change the button text for better UX
     const isOpen = mobileNav.classList.contains('is-open');
@@ -65,21 +68,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // 2. Event listener for the hamburger button
+  // Event listener for the hamburger button
   if (mobileNavToggle) {
     mobileNavToggle.addEventListener('click', toggleMobileMenu);
   }
 
-  // 3. Event listeners for each link inside the mobile menu
-  //    This makes the menu close automatically when a user clicks a link.
+  // Event listeners for each link inside the mobile menu
   mobileNavLinks.forEach(link => {
     link.addEventListener('click', () => {
-      // Check if the menu is open before trying to close it
       if (mobileNav.classList.contains('is-open')) {
         toggleMobileMenu();
       }
     });
   });
-
   // ===== END OF ADDED MOBILE NAVIGATION LOGIC =====
 });

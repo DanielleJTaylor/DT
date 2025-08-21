@@ -1,5 +1,6 @@
 /* style.css */
 
+
 html {
   scroll-behavior: smooth;
 }
@@ -9,6 +10,13 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   background-color: #f4f4f9;
 }
+
+/* ADD THIS RULE AT THE TOP */
+body.body-no-scroll {
+  overflow: hidden;
+}
+
+/* ... the rest of your css file remains exactly the same ... */
 
 .page-container {
   display: flex;
