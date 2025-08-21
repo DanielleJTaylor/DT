@@ -17,6 +17,7 @@ body {
 }
 
 /* ===== 1. LEFT STICKY SIDEBAR ===== */
+/* ===== 1. LEFT STICKY SIDEBAR (MODIFIED) ===== */
 .sidebar {
   width: 24vw;
   flex-shrink: 0;
@@ -24,10 +25,12 @@ body {
   position: sticky;
   top: 0;
   color: #fff;
-  overflow-y: auto;
+  overflow-y: auto; /* This allows scrolling when content is too tall */
   display: flex;
-  align-items: center;
-  justify-content: center;
+  /* REMOVED: align-items: center; */
+  /* REMOVED: justify-content: center; */
+  padding-top: 2rem; /* ADDED: Pushes content down from the top */
+  box-sizing: border-box; /* ADDED: Ensures padding is included in height calculation */
   background: 
     linear-gradient(rgba(15, 23, 42, 0.247), rgba(15, 23, 42, 0.9)),
     url("Cosmic.jpg") no-repeat center center;
@@ -41,6 +44,7 @@ body {
   align-items: center;
   text-align: center;
   padding: 1vw;
+  width: 100%; /* ADDED: Ensures it fills the sidebar width */
 }
 
 .profile-pic {
