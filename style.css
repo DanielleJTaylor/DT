@@ -177,13 +177,34 @@ body {
   line-height: clamp(1.4rem, 2.5vw, 1.6rem);
 }
 
+/* (Keep all your existing CSS from the top of the file down to the @media query) */
+/* ... */
+
+/* ===== START OF MODIFICATIONS & ADDITIONS ===== */
+
+/* MODIFIED: Add a media query to handle mobile layout */
 @media (max-width: 768px) {
+  /* Hide the desktop sidebar */
+  .sidebar {
+    display: none;
+  }
+
+  /* Allow main content to take up the full screen width */
+  .main-content {
+    max-width: 100%;
+    padding: 1.5rem; /* Adjust padding for mobile */
+  }
+
   .home-container {
     flex-direction: column;
   }
   .home-image {
     order: -1;
     margin-bottom: 2rem;
+  }
+
+  .class {
+    max-width: 100%; /* Allow the course box to take the full width */
   }
 }
 
@@ -241,4 +262,112 @@ body {
 /* Removes the extra space above the very first title */
 .course-category:first-child .category-title {
   margin-top: 0;
+}
+
+
+
+/* ===== ADDED: MOBILE NAVIGATION STYLES ===== */
+
+/* The hamburger button */
+.mobile-nav-toggle {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 1001; /* Must be on top of everything */
+  background: rgba(15, 23, 42, 0.8);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  cursor: pointer;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+}
+
+/* The full-screen overlay menu */
+.mobile-nav {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  background: 
+    linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.95)),
+    url("Cosmic.jpg") no-repeat center center;
+  background-size: cover;
+  
+  /* Centering the content inside */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  
+  /* Smooth fade-in animation */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* When the menu is open, make it visible */
+.mobile-nav.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Styles for content inside the mobile menu (reusing sidebar styles) */
+.mobile-nav-content {
+  color: white;
+  width: 80%;
+}
+.mobile-profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #6495ED; 
+  margin-bottom: 1rem;
+}
+.mobile-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  margin: 1.5rem 0;
+}
+.mobile-sidebar-nav a {
+  color: #f0f0f0;
+  text-decoration: none;
+  font-size: 1.5rem; /* Larger, tappable font size */
+  font-weight: bold;
+  padding: 0.75rem 0;
+  transition: background-color 0.2s;
+}
+.mobile-social-links .btn {
+  display: block;
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  margin: 0.5rem 0;
+  background-color: rgba(255, 255, 255, 0.1); 
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* This is the final media query to turn on the mobile nav */
+@media (max-width: 768px) {
+  /* Show the hamburger button */
+  .mobile-nav-toggle {
+    display: block;
+  }
+  
+  /* Show the mobile nav container itself (but keep it hidden until toggled) */
+  .mobile-nav {
+    display: flex;
+  }
 }

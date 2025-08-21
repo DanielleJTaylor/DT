@@ -13,24 +13,16 @@ async function loadSection(url, targetSelector, extractSelector) {
     if (target && extracted) {
       target.innerHTML = extracted.innerHTML;
     }
-
-    // This is no longer needed because the other script handles itself
-    // if (targetSelector === "#coursework" && typeof window.initCoursework === "function") {
-    //   window.initCoursework();
-    // }
   } catch (e) {
     console.error(`Failed to load content for ${targetSelector}`, e);
   }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  // REMOVED the line for loading coursework.
-  // loadSection("coursework.html", "#coursework", "#coursework, main"); 
-  
   // Keep the line for loading projects.
   loadSection("projects.html", "#projects", "main");
 
-  // --- Code for highlighting active link in sidebar ---
+  // --- Code for highlighting active link in DESKTOP sidebar ---
   const sections = [...document.querySelectorAll("#home, #coursework, #projects")];
   const links = [...document.querySelectorAll('.sidebar-nav a')]; 
 
@@ -47,9 +39,47 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }, { 
-    rootMargin: '-20% 0px -60% 0px', // TOP, RIGHT, BOTTOM, LEFT
+    rootMargin: '-20% 0px -60% 0px',
     threshold: 0 
   });
 
   sections.forEach(s => obs.observe(s));
+
+  // ===== START OF ADDED MOBILE NAVIGATION LOGIC =====
+
+  const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+  const mobileNav = document.querySelector('.mobile-nav');
+  const mobileNavLinks = document.querySelectorAll('.mobile-sidebar-nav a');
+
+  // 1. Function to open/close the menu
+  function toggleMobileMenu() {
+    // Toggle the .is-open class on the menu itself
+    mobileNav.classList.toggle('is-open');
+    
+    // Change the button text for better UX
+    const isOpen = mobileNav.classList.contains('is-open');
+    if (isOpen) {
+      mobileNavToggle.textContent = '✕'; // Close icon
+    } else {
+      mobileNavToggle.textContent = '☰'; // Hamburger icon
+    }
+  }
+
+  // 2. Event listener for the hamburger button
+  if (mobileNavToggle) {
+    mobileNavToggle.addEventListener('click', toggleMobileMenu);
+  }
+
+  // 3. Event listeners for each link inside the mobile menu
+  //    This makes the menu close automatically when a user clicks a link.
+  mobileNavLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      // Check if the menu is open before trying to close it
+      if (mobileNav.classList.contains('is-open')) {
+        toggleMobileMenu();
+      }
+    });
+  });
+
+  // ===== END OF ADDED MOBILE NAVIGATION LOGIC =====
 });
